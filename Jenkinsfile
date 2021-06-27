@@ -53,7 +53,7 @@ node {
 //         } catch (error) {
 //           sh "aws cloudformation update-stack --stack-name s3bucket --template-body file://s3Bucket.yml --region 'ap-south-1'"
 //         }
-
+    stage('Docker deployment') {
     sh 'docker run -d -p 8090:8080 --name tomcattest sureshsundar/suresh:0.0.3'
   }
 }
