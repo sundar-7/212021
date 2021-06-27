@@ -1,6 +1,6 @@
 node {
   stage('Prepare') {
-    git 'https://github.com/RakeshGanapathy/my-app.git'
+    git 'https://github.com/sundar-7/212021.git'
   }
   stage('Build') {
 
@@ -31,28 +31,28 @@ node {
   //    sh "docker tag saidamo/myweb:0.0.2 65.0.181.193:8083/damo:1.0.0"
   //    sh 'docker push 65.0.181.193:8083/damo:1.0.0'
   //    }
-  stage('Remove Container') {
-    try {
-      sh 'docker rm -f tomcattest'
-    } catch (error) {
-      echo 'docker image with tomcattest not available'
-    }
-  }
-  stage('Deploy') {
-    try {
-      // 		if aws cloudformation describe-stacks --stack-name dev-nics-proxyservlet-svc --region us-west-2 &>/dev/null 
-      // then
-      //     aws cloudformation delete-stack --stack-name dev-nics-proxyservlet-svc
-      // else
-      //     aws cloudformation create-stack --stack-name dev-nics-proxyservlet-svc --region us-west-2 --template-body file://dev-nics-proxyservlet-cluster.yml --parameters file://dev-nics-proxyservlet-svc-param.json --capabilities "CAPABILITY_IAM" "CAPABILITY_NAMED_IAM"
-      // fi
-      // 		if (sh "aws cloudformation describe-stacks --stack-name s3bucket --region 'ap-south-1'")
-      // 		           echo "started updating"
+  //    stage('Remove Container') {
+  //     try {
+  //        sh 'docker rm -f tomcattest'
+  //      } catch (error) {
+  //       echo 'docker image with tomcattest not available'
+  //         }
+  //       }
+  //       stage('Deploy') {
+  //         try {
+          // 		if aws cloudformation describe-stacks --stack-name dev-nics-proxyservlet-svc --region us-west-2 &>/dev/null 
+          // then
+          //     aws cloudformation delete-stack --stack-name dev-nics-proxyservlet-svc
+          // else
+          //     aws cloudformation create-stack --stack-name dev-nics-proxyservlet-svc --region us-west-2 --template-body file://dev-nics-proxyservlet-cluster.yml --parameters file://dev-nics-proxyservlet-svc-param.json --capabilities "CAPABILITY_IAM" "CAPABILITY_NAMED_IAM"
+          // fi
+          // 		if (sh "aws cloudformation describe-stacks --stack-name s3bucket --region 'ap-south-1'")
+          // 		           echo "started updating"
 
-      sh "aws cloudformation create-stack --stack-name s3bucket --template-body file://s3Bucket.yml --region 'ap-south-1'"
-    } catch (error) {
-      sh "aws cloudformation update-stack --stack-name s3bucket --template-body file://s3Bucket.yml --region 'ap-south-1'"
-    }
+//           sh "aws cloudformation create-stack --stack-name s3bucket --template-body file://s3Bucket.yml --region 'ap-south-1'"
+//         } catch (error) {
+//           sh "aws cloudformation update-stack --stack-name s3bucket --template-body file://s3Bucket.yml --region 'ap-south-1'"
+//         }
 
     sh 'docker run -d -p 8090:8080 --name tomcattest arkhes/mydemo:0.0.2'
   }
