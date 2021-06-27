@@ -16,15 +16,15 @@ node {
   // 	        }
   // 	    }
   stage('Build Image') {
-    sh 'docker build -t arkhes/mydemo:0.0.2 .'
+    sh 'docker build -t sureshsundar/suresh:0.0.3 .'
   }
   stage('Push Image') {
     // create a credential of type secrettext with docker hub password with id as "dockerPass"
     withCredentials([string(credentialsId: 'dockerPass', variable: 'dockerPassword')]) {
-      sh "docker login -u arkhes -p ${dockerPassword}"
+      sh "docker login -u sureshsundar -p ${dockerPassword}"
     }
     //docker push username/reponame:tagname
-    sh 'docker push arkhes/mydemo:0.0.2'
+    sh 'docker push sureshsundar/suresh:0.0.3'
   }
   //    stage('Nexus Image Push'){
   //    sh "docker login -u admin -p admin123 65.0.181.193:8083"
@@ -54,6 +54,6 @@ node {
 //           sh "aws cloudformation update-stack --stack-name s3bucket --template-body file://s3Bucket.yml --region 'ap-south-1'"
 //         }
 
-    sh 'docker run -d -p 8090:8080 --name tomcattest arkhes/mydemo:0.0.2'
+    sh 'docker run -d -p 8090:8080 --name tomcattest sureshsundar/suresh:0.0.3'
   }
 }
