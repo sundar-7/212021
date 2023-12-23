@@ -11,6 +11,6 @@ jobs:
 
       - name: commands
         run: |
-          chmod +x
+          chmod +x commands-script.sh
           ./commands-script.sh
           
