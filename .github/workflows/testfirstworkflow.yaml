@@ -9,17 +9,8 @@ jobs:
       - name: checkout
         uses: actions/checkout@v4
 
-      - name: install libraries
-        run: sudo apt-get install cowsay -y
-
-      - name: execute commands
-        run: cowsay -f dragon "run for cover, Iam a dragon" >> dragon.txt
-
-      - name: Test file
-        run: grep -i "dragon" dragon.txt   
-
       - name: commands
         run: |
-          ls -ltra
-          cat dragon.txt
+          chmod +x
+          ./commands-script.sh
           
