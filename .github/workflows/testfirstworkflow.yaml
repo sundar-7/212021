@@ -8,6 +8,9 @@ jobs:
     steps: 
       - name: checkout
         uses: actions/checkout@v4
+       
+      - name: list file
+        run: ls -ltra    
 
       - name: commands
         run: |
