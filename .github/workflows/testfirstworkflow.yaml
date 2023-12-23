@@ -21,5 +21,5 @@ jobs:
       - name: commands
         run: |
           ls -ltra
-          cat README.md
+          cat dragon.txt
           
