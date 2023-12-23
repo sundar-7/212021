@@ -16,7 +16,7 @@ jobs:
         run: cowsay -f dragon "run for cow image" >> dragon.txt
 
       - name: Test file
-        run: grep -i "dragon" dragon.txt   
+        run: grep -i "dragon"dragon.txt   
 
       - name: commands
         run: |
