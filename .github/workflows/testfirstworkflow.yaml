@@ -13,10 +13,10 @@ jobs:
         run: sudo apt-get install cowsay -y
 
       - name: execute commands
-        run: cowsay "run for cow image" >> cow.txt
+        run: cowsay -f cow "run for cow image" >> cow.txt
 
       - name: Test file
-        run: grep -i "cow.txt"      
+        run: grep -i "cow" cow.txt   
 
       - name: commands
         run: |
