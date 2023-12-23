@@ -9,9 +9,12 @@ jobs:
       - name: checkout
         uses: actions/checkout@v4
 
-      - name: welcome
-        run: echo "welcome to github action"
+      - name: install libraries
+        run: sudo apt-get install cowsay -y
 
+      - name: execute commands
+        run: cowsay "run for cow image" >> cow.txt
+        
       - name: commands
         run: |
           ls -ltra
