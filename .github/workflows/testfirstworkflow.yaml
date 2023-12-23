@@ -12,8 +12,8 @@ jobs:
       - name: welcome
         run: echo "welcome to github action"
 
-      - name: list files
-        run: ls
-        
-      - name: read file
-        run: cat README.md  
+      - name: commands
+        run: |
+          ls -ltra
+          cat README.md
+          
