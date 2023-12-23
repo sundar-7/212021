@@ -1,0 +1,16 @@
+name: mytestworkflow
+
+on: push
+
+jobs:
+  test_job1:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: welcome
+        run: echo "welcome to github action"
+
+      - name: list files
+        run: ls
+        
+      - name: read file
+        run: cat READ.md  
